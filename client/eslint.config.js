@@ -39,4 +39,22 @@ export default [
       },
     },
   },
+  {
+    files: ['cypress/**/*.{js,jsx}', '**/*.cy.{js,jsx}'],
+    languageOptions: {
+      globals: {
+        cy: 'readonly',
+        Cypress: 'readonly',
+        describe: 'readonly',
+        context: 'readonly',
+        it: 'readonly',
+        before: 'readonly',
+        after: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        expect: 'readonly',
+        assert: 'readonly',
+      },
+    },
+  },
 ]
