@@ -1,6 +1,10 @@
 server/node_modules
 server/package-lock.json
+server/.env.local
+server/coverage
 client/node_modules
 client/package-lock.json
+client/.env.local
+client/coverage
 
 .env.local
