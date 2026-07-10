@@ -13,7 +13,7 @@ Problèmes relevés pendant l'écriture des tests, corrections appliquées et pi
 
 4. **Identifiants DB en clair dans les docker-compose.** Proposition : externaliser via variables d'environnement non versionnées.
 5. **En-têtes de sécurité HTTP absents** (voir ZAP). Proposition : ajouter `helmet` côté Express et/ou les définir dans nginx.
-6. **Dockerfile backend.** `FROM node:lts` (image complète, root), `COPY . .` (embarque `.env`/`node_modules`), `EXPOSE 5000` alors que l'app écoute sur 5005. Propositions : `node:lts-slim` + `USER node`, ajouter un `.dockerignore`, `npm ci --omit=dev`, corriger `EXPOSE 5005`.
+6. **Dockerfile backend.** `FROM node:lts` (image complète, root), `COPY . .` (embarque `.env`/`node_modules`). Propositions : Image plus legère avec une version fixé de node, ajouter un `.dockerignore`.
 7. **Dockerfile frontend.** `nginx:latest` non figé. Proposition : figer (ex. `nginx:1.27-alpine`).
 
 8. **Pas de gestion d'erreur dans `cdService.js` / `AddCD.jsx`.** Une API en échec casse l'UI (rejet de promesse non géré, confirmé en E2E). Proposition : try/catch et remontée d'un état d'erreur.
